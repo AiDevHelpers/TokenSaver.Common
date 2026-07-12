@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TokenSaver.Common.Core\TokenSaver.Common.Core.csproj" />
+    <ProjectReference Include="..\..\Core\TokenSaver.Common.Core\TokenSaver.Common.Core.csproj" />
   </ItemGroup>
 
 </Project>
