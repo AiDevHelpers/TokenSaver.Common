@@ -1,38 +1,60 @@
-using TokenSaver.ContextHelper.Models.Calibration;
-using TokenSaver.ContextHelper.Models.Diagnostics;
-using TokenSaver.Library.Services;
+using System;
+using System.Collections.Generic;
 
-namespace TokenSaver.Library.Models.Context;
+namespace TokenSaver.Common.Models;
 
+/// <summary>
+/// Result from building concise context
+/// </summary>
 public class BuildContextResult
 {
+    /// <summary>
+    /// The built context text
+    /// </summary>
     public string ContextText { get; set; } = "";
+
+    /// <summary>
+    /// Token count of the context
+    /// </summary>
     public int TokenCount { get; set; }
-    public bool Alert { get; set; }
+
+    /// <summary>
+    /// Builder version that created this result
+    /// </summary>
+    public string BuilderVersion { get; set; } = "1.0.0";
+
+    /// <summary>
+    /// When the context was built
+    /// </summary>
+    public DateTime BuiltAt { get; set; } = DateTime.UtcNow;
+
+    /// <summary>
+    /// Whether the build succeeded
+    /// </summary>
+    public bool Success { get; set; } = true;
+
+    /// <summary>
+    /// Alert message if any
+    /// </summary>
     public string? AlertMessage { get; set; }
-    public IReadOnlyList<string> GeneratedFiles { get; set; } = [];
+
+    /// <summary>
+    /// Source files included in context
+    /// </summary>
+    public int SourceFileCount { get; set; }
+
+    /// <summary>
+    /// Files excluded from context
+    /// </summary>
+    public int ExcludedFileCount { get; set; }
+
+    /// <summary>
+    /// Build warnings or notes
+    /// </summary>
+    public List<string> Warnings { get; set; } = [];
+
+    /// <summary>
+    /// Context hygiene report
+    /// </summary>
     public ContextHygieneReport? HygieneReport { get; set; }
-    public ConversationIndex? ConversationIndex { get; set; }
-    public PipelineSummary? PipelineSummary { get; set; }
-
-    /// <summary>
-    ///     Result of this call's SemanticIndexBackgroundTrigger.EnsureStartedAsync check — whether
-    ///     a first-run background chunk/embedding index build was just kicked off for SemanticGrep.
-    /// </summary>
-    public SemanticIndexTriggerStatus SemanticIndexStatus { get; set; }
-
-    /// <summary>
-    ///     Workspace-relative paths of files whose source has been modified since they were
-    ///     last indexed into context.db.
-    ///     Non-empty means some context may be stale — consider re-running BuildConciseContext.
-    /// </summary>
-    public IReadOnlyList<string> StaleFiles { get; set; } = [];
-
-    /// <summary>
-    ///     Set when this turn requested at least one file the previous turn's semantic relevance
-    ///     filter never surfaced above its threshold — evidence the filter was too narrow. Null
-    ///     means there was nothing to compare (no session, first turn, or nothing new requested).
-    ///     See <see cref="TokenSaver.ContextHelper.Calibration.RetrievalCalibrationService" />.
-    /// </summary>
-    public RetrievalCalibrationCheckResult? CalibrationCheck { get; set; }
 }

@@ -1,9 +1,44 @@
-namespace TokenSaver.Library.Models.Context;
+using System.Collections.Generic;
 
+namespace TokenSaver.Common.Models;
+
+/// <summary>
+/// Report on context hygiene and issues
+/// </summary>
 public class ContextHygieneReport
 {
+    /// <summary>
+    /// Total files in context
+    /// </summary>
     public int FileCount { get; set; }
+
+    /// <summary>
+    /// Total sections in context
+    /// </summary>
     public int SectionCount { get; set; }
-    public IReadOnlyList<StaleSection> StaleSections { get; set; } = [];
-    public ConversationIndex? ConversationIndex { get; set; }
+
+    /// <summary>
+    /// Overall hygiene status
+    /// </summary>
+    public string Status { get; set; } = "Good";
+
+    /// <summary>
+    /// Number of issues found
+    /// </summary>
+    public int IssueCount { get; set; }
+
+    /// <summary>
+    /// Detected issues
+    /// </summary>
+    public List<string> Issues { get; set; } = [];
+
+    /// <summary>
+    /// Recommendations for improvement
+    /// </summary>
+    public List<string> Recommendations { get; set; } = [];
+
+    /// <summary>
+    /// Time taken to analyze in milliseconds
+    /// </summary>
+    public long AnalysisTimeMs { get; set; }
 }
