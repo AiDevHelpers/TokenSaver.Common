@@ -1,11 +1,11 @@
 using System;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace TokenSaver.Common.Installation;
 
 /// <summary>
-/// Detects the workspace root directory by searching for .git or .sln markers
+/// Detects the workspace root directory by searching for .git or .slnx markers.
+/// Walk upward from startPath until finding a directory with either marker.
 /// </summary>
 public static class WorkspaceRootDetector
 {
@@ -13,7 +13,8 @@ public static class WorkspaceRootDetector
     private const string SolutionMarker = "*.slnx";
 
     /// <summary>
-    /// Find the workspace root starting from a given directory
+    /// Find the workspace root starting from a given directory by walking upward.
+    /// Returns null if no workspace root is found.
     /// </summary>
     public static string? FindWorkspaceRoot(string? startPath = null)
     {
@@ -24,66 +25,91 @@ public static class WorkspaceRootDetector
             if (IsWorkspaceRoot(current))
                 return current;
 
-            var parent = Directory.GetParent(current);
-            current = parent?.FullName;
+            try
+            {
+                var parent = Directory.GetParent(current);
+                if (parent == null)
+                    break;
+                current = parent.FullName;
+            }
+            catch (ArgumentException)
+            {
+                // Path has invalid characters
+                break;
+            }
         }
 
         return null;
     }
 
     /// <summary>
-    /// Find the workspace root asynchronously
-    /// </summary>
-    public static Task<string?> FindWorkspaceRootAsync(string? startPath = null)
-    {
-        return Task.FromResult(FindWorkspaceRoot(startPath));
-    }
-
-    /// <summary>
-    /// Check if a directory is a workspace root
+    /// Check if a directory is a workspace root (has .git or .slnx).
+    /// Returns false on any error (access denied, not found, invalid path).
     /// </summary>
     public static bool IsWorkspaceRoot(string directoryPath)
     {
+        if (string.IsNullOrWhiteSpace(directoryPath))
+            return false;
+
         if (!Directory.Exists(directoryPath))
             return false;
 
         // Check for .git directory or .slnx file
-        var gitPath = Path.Combine(directoryPath, GitMarker);
-        if (Directory.Exists(gitPath))
-            return true;
-
         try
         {
+            var gitPath = Path.Combine(directoryPath, GitMarker);
+            if (Directory.Exists(gitPath))
+                return true;
+
             var slnxFiles = Directory.GetFiles(directoryPath, SolutionMarker);
             return slnxFiles.Length > 0;
         }
-        catch
+        catch (ArgumentException)
+        {
+            // Path has invalid characters
+            return false;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            // No permission to read directory
+            return false;
+        }
+        catch (System.IO.PathTooLongException)
         {
             return false;
         }
     }
 
     /// <summary>
-    /// Get the .tokensaver directory for a workspace
+    /// Get the .tokensaver directory path for a workspace root.
     /// </summary>
     public static string GetTokenSaverDirectory(string workspaceRoot)
     {
+        if (string.IsNullOrWhiteSpace(workspaceRoot))
+            throw new ArgumentException("Workspace root cannot be null or empty", nameof(workspaceRoot));
+
         return Path.Combine(workspaceRoot, ".tokensaver");
     }
 
     /// <summary>
-    /// Get the config file path in the workspace
+    /// Get the config file path in the workspace.
     /// </summary>
     public static string GetWorkspaceConfigPath(string workspaceRoot)
     {
+        if (string.IsNullOrWhiteSpace(workspaceRoot))
+            throw new ArgumentException("Workspace root cannot be null or empty", nameof(workspaceRoot));
+
         return Path.Combine(GetTokenSaverDirectory(workspaceRoot), "config.json");
     }
 
     /// <summary>
-    /// Get the index database path in the workspace
+    /// Get the index database path in the workspace.
     /// </summary>
     public static string GetIndexDatabasePath(string workspaceRoot)
     {
+        if (string.IsNullOrWhiteSpace(workspaceRoot))
+            throw new ArgumentException("Workspace root cannot be null or empty", nameof(workspaceRoot));
+
         return Path.Combine(GetTokenSaverDirectory(workspaceRoot), "index.db");
     }
 }

@@ -4,101 +4,109 @@ using System.Collections.Generic;
 namespace TokenSaver.Common.Models;
 
 /// <summary>
-/// A piece of source code
+/// Represents a chunk of source code.
+/// All properties are init-only to prevent accidental mutation.
 /// </summary>
 public class CodeChunk
 {
-    public string Id { get; set; } = "";
-    public string Path { get; set; } = "";
-    public string Language { get; set; } = "";
-    public string Content { get; set; } = "";
-    public int StartLine { get; set; }
-    public int EndLine { get; set; }
-    public int TokenCount { get; set; }
-    public string? Summary { get; set; }
+    public string Id { get; init; } = "";
+    public string Path { get; init; } = "";
+    public string Language { get; init; } = "";
+    public string Content { get; init; } = "";
+    public int StartLine { get; init; }
+    public int EndLine { get; init; }
+    public int TokenCount { get; init; }
+    public string? Summary { get; init; }
 }
 
 /// <summary>
-/// Result of distilling text
+/// Result of distilling/summarizing text.
+/// All properties are init-only to ensure immutability.
 /// </summary>
 public class DistillResult
 {
-    public string Original { get; set; } = "";
-    public string Distilled { get; set; } = "";
-    public double ReductionRatio { get; set; }
-    public double Quality { get; set; }
-    public long ExecutionTimeMs { get; set; }
+    public string Original { get; init; } = "";
+    public string Distilled { get; init; } = "";
+    public double ReductionRatio { get; init; }
+    public double Quality { get; init; }
+    public long ExecutionTimeMs { get; init; }
 }
 
 /// <summary>
-/// Statistics about a repository index
+/// Statistics about a repository index.
+/// All properties are init-only.
 /// </summary>
 public class RepoIndexStats
 {
-    public int FileCount { get; set; }
-    public int SymbolCount { get; set; }
-    public int ChunkCount { get; set; }
-    public long IndexSizeBytes { get; set; }
-    public DateTime LastUpdated { get; set; }
-    public bool IsHealthy { get; set; }
+    public int FileCount { get; init; }
+    public int SymbolCount { get; init; }
+    public int ChunkCount { get; init; }
+    public long IndexSizeBytes { get; init; }
+    public DateTime LastUpdated { get; init; }
+    public bool IsHealthy { get; init; }
 }
 
 /// <summary>
-/// Aggregate savings metrics
+/// Aggregate savings metrics (tokens saved from distillation).
+/// All properties are init-only.
 /// </summary>
 public class SavingsAggregate
 {
-    public long TotalOriginalTokens { get; set; }
-    public long TotalDistilledTokens { get; set; }
-    public long TotalSavedTokens { get; set; }
-    public double ReductionRatio { get; set; }
-    public int OperationCount { get; set; }
-    public DateTime PeriodStart { get; set; }
-    public DateTime PeriodEnd { get; set; }
+    public long TotalOriginalTokens { get; init; }
+    public long TotalDistilledTokens { get; init; }
+    public long TotalSavedTokens { get; init; }
+    public double ReductionRatio { get; init; }
+    public int OperationCount { get; init; }
+    public DateTime PeriodStart { get; init; }
+    public DateTime PeriodEnd { get; init; }
 }
 
 /// <summary>
-/// Result of semantic search
+/// Result of a semantic search query.
+/// All properties are init-only.
 /// </summary>
 public class SemanticSearchHit
 {
-    public string Id { get; set; } = "";
-    public string Path { get; set; } = "";
-    public double Relevance { get; set; }
-    public string Preview { get; set; } = "";
-    public int StartLine { get; set; }
-    public int EndLine { get; set; }
+    public string Id { get; init; } = "";
+    public string Path { get; init; } = "";
+    public double Relevance { get; init; }
+    public string Preview { get; init; } = "";
+    public int StartLine { get; init; }
+    public int EndLine { get; init; }
 }
 
 /// <summary>
-/// Detected LLM provider for configuration
+/// Detected LLM provider configuration.
+/// All properties are init-only.
 /// </summary>
 public class DetectedProvider
 {
-    public ProviderType Type { get; set; }
-    public string ConfigPath { get; set; } = "";
-    public bool IsInstalled { get; set; }
-    public DateTime? LastModified { get; set; }
+    public ProviderType Type { get; init; }
+    public string ConfigPath { get; init; } = "";
+    public bool IsInstalled { get; init; }
+    public DateTime? LastModified { get; init; }
 }
 
 /// <summary>
-/// Context section metadata
+/// Metadata about a section of context.
+/// The Files collection is a copy; modifications don't affect the original.
 /// </summary>
 public class ContextSection
 {
-    public string Name { get; set; } = "";
-    public int TokenCount { get; set; }
-    public int FileCount { get; set; }
-    public List<string> Files { get; set; } = [];
+    public string Name { get; init; } = "";
+    public int TokenCount { get; init; }
+    public int FileCount { get; init; }
+    public List<string> Files { get; init; } = [];
 }
 
 /// <summary>
-/// Conversation history index
+/// Index of a conversation's structure and history.
+/// The Topics collection is a copy; modifications don't affect the original.
 /// </summary>
 public class ConversationIndex
 {
-    public int TurnCount { get; set; }
-    public int TotalTokens { get; set; }
-    public List<string> Topics { get; set; } = [];
-    public DateTime CreatedAt { get; set; }
+    public int TurnCount { get; init; }
+    public int TotalTokens { get; init; }
+    public List<string> Topics { get; init; } = [];
+    public DateTime CreatedAt { get; init; }
 }

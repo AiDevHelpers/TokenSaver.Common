@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace TokenSaver.Common.Installation;
 
@@ -16,11 +15,14 @@ public static class VersionDetector
     /// </summary>
     public static Version GetAssemblyVersion(Assembly? assembly = null)
     {
-        assembly ??= Assembly.GetExecutingAssembly();
+        if (assembly == null)
+            assembly = Assembly.GetExecutingAssembly();
+
         var versionAttr = assembly.GetCustomAttribute<AssemblyVersionAttribute>();
-        return versionAttr != null
-            ? new Version(versionAttr.Version)
-            : new Version(0, 0, 0, 0);
+        if (versionAttr != null && Version.TryParse(versionAttr.Version, out var parsed))
+            return parsed;
+
+        return new Version(0, 0, 0, 0);
     }
 
     /// <summary>
@@ -28,20 +30,28 @@ public static class VersionDetector
     /// </summary>
     public static Version? GetInstalledServiceVersion()
     {
-        var exePath = ServicePathResolver.GetServiceExecutablePath();
-        if (!File.Exists(exePath))
-            return null;
-
         try
         {
-            var fileInfo = FileVersionInfo.GetVersionInfo(exePath);
+            var exePath = ServicePathResolver.GetServiceExecutablePath();
+            if (!File.Exists(exePath))
+                return null;
+
+            var fileInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(exePath);
             var version = fileInfo.FileVersion;
             if (!string.IsNullOrEmpty(version) && Version.TryParse(version, out var parsed))
                 return parsed;
         }
-        catch
+        catch (ArgumentException)
         {
-            // Ignore errors reading version
+            return null;
+        }
+        catch (System.IO.FileNotFoundException)
+        {
+            return null;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return null;
         }
 
         return null;
@@ -52,6 +62,8 @@ public static class VersionDetector
     /// </summary>
     public static bool IsUpdateAvailable(Version current, Version? installed)
     {
+        if (current == null)
+            throw new ArgumentNullException(nameof(current));
         if (installed == null)
             return false;
 
@@ -63,6 +75,9 @@ public static class VersionDetector
     /// </summary>
     public static Version? ReadVersionFromFile(string versionFilePath)
     {
+        if (string.IsNullOrWhiteSpace(versionFilePath))
+            throw new ArgumentException("Version file path cannot be null or empty", nameof(versionFilePath));
+
         if (!File.Exists(versionFilePath))
             return null;
 
@@ -79,42 +94,28 @@ public static class VersionDetector
                     return version;
             }
         }
-        catch
+        catch (System.IO.FileNotFoundException)
         {
-            // Ignore JSON parsing errors
+            return null;
+        }
+        catch (JsonException)
+        {
+            return null;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return null;
         }
 
         return null;
     }
 
     /// <summary>
-    /// Get a version string with Git info
+    /// Get a version string representation
     /// </summary>
     public static string GetVersionString(Version? version = null)
     {
         version ??= GetAssemblyVersion();
         return version.ToString();
-    }
-}
-
-/// <summary>
-/// File version info helper
-/// </summary>
-public static class FileVersionInfo
-{
-    public static (string FileVersion, string ProductVersion) GetVersionInfo(string filePath)
-    {
-        if (!File.Exists(filePath))
-            return ("", "");
-
-        try
-        {
-            var versionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(filePath);
-            return (versionInfo.FileVersion ?? "", versionInfo.ProductVersion ?? "");
-        }
-        catch
-        {
-            return ("", "");
-        }
     }
 }

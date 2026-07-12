@@ -65,10 +65,14 @@ public static class InstallationStatusChecker
     }
 
     /// <summary>
-    /// Check if .tokensaver directory is in .gitignore
+    /// Check if .tokensaver directory is in .gitignore.
+    /// Returns false if no .gitignore exists or cannot be read.
     /// </summary>
     public static bool IsTokenSaverInGitignore(string workspaceRoot)
     {
+        if (string.IsNullOrWhiteSpace(workspaceRoot))
+            return false;
+
         var gitignorePath = Path.Combine(workspaceRoot, ".gitignore");
         if (!File.Exists(gitignorePath))
             return false;
@@ -78,37 +82,51 @@ public static class InstallationStatusChecker
             var content = File.ReadAllText(gitignorePath);
             return content.Contains(".tokensaver/") || content.Contains(".tokensaver");
         }
-        catch
+        catch (UnauthorizedAccessException)
+        {
+            return false;
+        }
+        catch (System.IO.FileNotFoundException)
+        {
+            return false;
+        }
+        catch (System.IO.IOException)
         {
             return false;
         }
     }
 
     /// <summary>
-    /// Check if required directories can be created
+    /// Check if required directories can be created (check parent writable).
+    /// Always returns true on non-Windows platforms (no service paths).
     /// </summary>
     public static bool CanCreateDirectories()
     {
+        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            return true;
+
         try
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            var path = ServicePathResolver.GetGlobalConfigDirectory();
+            if (!Directory.Exists(path))
             {
-                var path = ServicePathResolver.GetGlobalConfigDirectory();
-                if (!Directory.Exists(path))
-                {
-                    // Just test; don't actually create
-                    var parent = Directory.GetParent(path);
-                    return parent?.Exists ?? false;
-                }
-                return true;
+                var parent = Directory.GetParent(path);
+                return parent?.Exists ?? false;
             }
+            return true;
         }
-        catch
+        catch (PlatformNotSupportedException)
         {
             return false;
         }
-
-        return true;
+        catch (ArgumentException)
+        {
+            return false;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            return false;
+        }
     }
 
     /// <summary>
