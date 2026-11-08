@@ -127,7 +127,7 @@ public class ContextSection
     public string Name { get; init; } = "";
     public int TokenCount { get; init; }
     public int FileCount { get; init; }
-    public List<string> Files { get; init; } = [];
+    public IReadOnlyList<string> Files { get; init; } = [];
 }
 
 /// <summary>
@@ -138,7 +138,7 @@ public class ConversationIndex
 {
     public int TurnCount { get; init; }
     public int TotalTokens { get; init; }
-    public List<string> Topics { get; init; } = [];
+    public IReadOnlyList<string> Topics { get; init; } = [];
     public DateTime CreatedAt { get; init; }
 }
 
