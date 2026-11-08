@@ -80,7 +80,7 @@ public static class InstallationStatusChecker
         try
         {
             var content = File.ReadAllText(gitignorePath);
-            return content.Contains(".tokensaver/") || content.Contains(".tokensaver");
+            return content.Contains(".tokensaver/", StringComparison.Ordinal) || content.Contains(".tokensaver", StringComparison.Ordinal);
         }
         catch (UnauthorizedAccessException)
         {

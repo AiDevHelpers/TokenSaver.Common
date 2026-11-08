@@ -62,8 +62,7 @@ public static class VersionDetector
     /// </summary>
     public static bool IsUpdateAvailable(Version current, Version? installed)
     {
-        if (current == null)
-            throw new ArgumentNullException(nameof(current));
+        ArgumentNullException.ThrowIfNull(current);
         if (installed == null)
             return false;
 
