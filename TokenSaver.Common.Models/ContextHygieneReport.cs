@@ -30,12 +30,12 @@ public class ContextHygieneReport
     /// <summary>
     /// Detected issues
     /// </summary>
-    public List<string> Issues { get; set; } = [];
+    public IReadOnlyList<string> Issues { get; set; } = [];
 
     /// <summary>
     /// Recommendations for improvement
     /// </summary>
-    public List<string> Recommendations { get; set; } = [];
+    public IReadOnlyList<string> Recommendations { get; set; } = [];
 
     /// <summary>
     /// Time taken to analyze in milliseconds

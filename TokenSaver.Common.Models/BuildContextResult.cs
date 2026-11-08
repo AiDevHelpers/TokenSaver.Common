@@ -51,7 +51,7 @@ public class BuildContextResult
     /// <summary>
     /// Build warnings or notes
     /// </summary>
-    public List<string> Warnings { get; set; } = [];
+    public IReadOnlyList<string> Warnings { get; set; } = [];
 
     /// <summary>
     /// Context hygiene report
