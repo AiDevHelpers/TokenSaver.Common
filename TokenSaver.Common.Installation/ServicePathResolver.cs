@@ -67,10 +67,7 @@ public static class ServicePathResolver
     /// <summary>
     /// Get the Windows service name for TaskScheduler/SCM
     /// </summary>
-    public static string GetServiceName()
-    {
-        return ServiceName;
-    }
+    public static string ServiceRegistrationName => ServiceName;
 
     /// <summary>
     /// Check if the service executable exists (weak indicator of installation).

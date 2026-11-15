@@ -11,19 +11,6 @@ namespace TokenSaver.Common.Installation;
 public static class InstallationStatusChecker
 {
     /// <summary>
-    /// Installation status result
-    /// </summary>
-    public class InstallationStatus
-    {
-        public bool IsInstalled { get; set; }
-        public bool ServiceExists { get; set; }
-        public bool ConfigExists { get; set; }
-        public Version? InstalledVersion { get; set; }
-        public string? InstallPath { get; set; }
-        public string? ConfigPath { get; set; }
-    }
-
-    /// <summary>
     /// Check the installation status
     /// </summary>
     public static InstallationStatus CheckInstallationStatus()
@@ -157,21 +144,35 @@ public static class InstallationStatusChecker
         };
     }
 
-    /// <summary>
-    /// Detailed status report
-    /// </summary>
-    public class StatusReport
-    {
-        public bool IsInstalled { get; set; }
-        public bool ServiceExists { get; set; }
-        public bool ConfigExists { get; set; }
-        public Version? InstalledVersion { get; set; }
-        public string? InstallPath { get; set; }
-        public string? GlobalConfigPath { get; set; }
-        public string? WorkspaceRoot { get; set; }
-        public string? WorkspaceConfigPath { get; set; }
-        public string? TokenSaverDir { get; set; }
-        public bool IsTokenSaverInGitignore { get; set; }
-        public bool CanCreateDirectories { get; set; }
-    }
+}
+
+/// <summary>
+/// Installation status result
+/// </summary>
+public class InstallationStatus
+{
+    public bool IsInstalled { get; set; }
+    public bool ServiceExists { get; set; }
+    public bool ConfigExists { get; set; }
+    public Version? InstalledVersion { get; set; }
+    public string? InstallPath { get; set; }
+    public string? ConfigPath { get; set; }
+}
+
+/// <summary>
+/// Detailed status report
+/// </summary>
+public class StatusReport
+{
+    public bool IsInstalled { get; set; }
+    public bool ServiceExists { get; set; }
+    public bool ConfigExists { get; set; }
+    public Version? InstalledVersion { get; set; }
+    public string? InstallPath { get; set; }
+    public string? GlobalConfigPath { get; set; }
+    public string? WorkspaceRoot { get; set; }
+    public string? WorkspaceConfigPath { get; set; }
+    public string? TokenSaverDir { get; set; }
+    public bool IsTokenSaverInGitignore { get; set; }
+    public bool CanCreateDirectories { get; set; }
 }
