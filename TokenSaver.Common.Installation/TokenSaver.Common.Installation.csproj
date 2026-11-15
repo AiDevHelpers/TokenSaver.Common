@@ -8,11 +8,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.10.94">
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="../TokenSaver.Common.Models/TokenSaver.Common.Models.csproj" />
