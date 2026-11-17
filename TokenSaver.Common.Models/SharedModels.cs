@@ -173,6 +173,9 @@ public record ConfigUpdateResult
     /// <summary>Absolute path of the file that was written (or would have been written).</summary>
     public string? ConfigPath { get; init; }
 
+    /// <summary>Stable code for why nothing was written (see <see cref="ConfigFailure" />), or null on success.</summary>
+    public string? FailureReason { get; init; }
+
     public override string ToString()
     {
         return
