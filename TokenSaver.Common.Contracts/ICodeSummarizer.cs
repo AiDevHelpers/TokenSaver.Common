@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TokenSaver.Common.Contracts;
+namespace AiDevTools.TokenSaver.Common.Contracts;
 
 /// <summary>
 ///     Generates a short natural-language summary of a source file's purpose and key

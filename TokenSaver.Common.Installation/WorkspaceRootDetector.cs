@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace TokenSaver.Common.Installation;
+namespace AiDevTools.TokenSaver.Common.Installation;
 
 /// <summary>
 /// Detects the workspace root directory by searching for .git or .slnx markers.

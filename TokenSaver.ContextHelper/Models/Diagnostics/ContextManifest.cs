@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace TokenSaver.ContextHelper.Models.Diagnostics;
+namespace AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 public class ContextManifest
 {

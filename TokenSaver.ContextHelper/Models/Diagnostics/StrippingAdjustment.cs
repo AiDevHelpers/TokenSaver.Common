@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Models.Diagnostics;
+namespace AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 /// <summary>
 ///     Session-scoped overrides to stripping thresholds produced by <c>StrippingHealthAnalyzer</c>.

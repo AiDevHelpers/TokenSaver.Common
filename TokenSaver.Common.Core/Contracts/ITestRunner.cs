@@ -1,4 +1,4 @@
-namespace TokenSaver.Common.Core.Contracts;
+namespace AiDevTools.TokenSaver.Common.Core.Contracts;
 
 /// <summary>
 ///     Contract for running tests in IDEs and via command-line.

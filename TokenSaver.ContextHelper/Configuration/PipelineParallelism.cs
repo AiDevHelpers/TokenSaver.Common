@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Configuration;
+namespace AiDevTools.TokenSaver.ContextHelper.Configuration;
 
 /// <summary>
 ///     Shared parallelism budget: all CPU threads minus 2 (reserved for OS + ASP.NET I/O pump).

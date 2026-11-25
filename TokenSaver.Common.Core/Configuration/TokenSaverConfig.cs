@@ -1,8 +1,8 @@
-using TokenSaver.ContextHelper.Configuration;
+using AiDevTools.TokenSaver.ContextHelper.Configuration;
 
 using System.Collections.ObjectModel;
 
-namespace TokenSaver.Common.Core.Configuration;
+namespace AiDevTools.TokenSaver.Common.Core.Configuration;
 
 /// <summary>
 ///     One configured Ollama endpoint. <see cref="Name" /> is used to select it explicitly

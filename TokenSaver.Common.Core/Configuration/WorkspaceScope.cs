@@ -1,4 +1,4 @@
-namespace TokenSaver.Common.Core.Configuration;
+namespace AiDevTools.TokenSaver.Common.Core.Configuration;
 
 /// <summary>
 ///     The workspace root of the request currently being served. One instance is created per HTTP

@@ -1,11 +1,11 @@
-using TokenSaver.ContextHelper.Models;
-using TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Models;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 using System.Collections.Concurrent;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace TokenSaver.ContextHelper.Pipeline;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline;
 
 public class PipelineContext
 {

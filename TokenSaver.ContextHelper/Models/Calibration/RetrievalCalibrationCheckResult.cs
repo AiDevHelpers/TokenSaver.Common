@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Models.Calibration;
+namespace AiDevTools.TokenSaver.ContextHelper.Models.Calibration;
 
 /// <summary>
 ///     Returned by <see cref="Calibration.RetrievalCalibrationService.CheckLateRequestAsync" /> when at

@@ -1,6 +1,6 @@
 using System.Net.Http.Json;
 
-namespace TokenSaver.ContextHelper.Embedding;
+namespace AiDevTools.TokenSaver.ContextHelper.Embedding;
 
 /// <summary>
 ///     Shared Ollama <c>/api/embed</c> call + cosine similarity math used by both

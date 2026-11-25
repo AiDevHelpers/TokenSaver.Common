@@ -1,8 +1,8 @@
-using TokenSaver.ContextHelper.Calibration;
-using TokenSaver.ContextHelper.Configuration;
-using TokenSaver.ContextHelper.Embedding;
-using TokenSaver.ContextHelper.Models;
-using TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Calibration;
+using AiDevTools.TokenSaver.ContextHelper.Configuration;
+using AiDevTools.TokenSaver.ContextHelper.Embedding;
+using AiDevTools.TokenSaver.ContextHelper.Models;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using System.Net.Http.Json;
 
-namespace TokenSaver.ContextHelper.Pipeline.Stages;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline.Stages;
 
 /// <summary>
 ///     Stage 6 — Semantic Relevance Filtering (runs after Stage 8 in actual pipeline order).

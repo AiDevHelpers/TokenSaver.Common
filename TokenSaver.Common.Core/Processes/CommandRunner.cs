@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 
-namespace TokenSaver.Common.Core.Processes;
+namespace AiDevTools.TokenSaver.Common.Core.Processes;
 
 /// <summary>What to run and how long to let it run.</summary>
 public sealed record CommandRequest

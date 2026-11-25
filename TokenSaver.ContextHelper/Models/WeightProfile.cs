@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Models;
+namespace AiDevTools.TokenSaver.ContextHelper.Models;
 
 /// <summary>
 ///     Per-content-kind retention weights. 0.0 = strip aggressively; 1.0 = preserve fully.

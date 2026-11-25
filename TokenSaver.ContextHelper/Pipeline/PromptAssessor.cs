@@ -1,5 +1,5 @@
-using TokenSaver.ContextHelper.Configuration;
-using TokenSaver.ContextHelper.Models;
+using AiDevTools.TokenSaver.ContextHelper.Configuration;
+using AiDevTools.TokenSaver.ContextHelper.Models;
 
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 using System.Net.Http.Json;
 using System.Text.RegularExpressions;
 
-namespace TokenSaver.ContextHelper.Pipeline;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline;
 
 /// <summary>
 ///     Classifies an incoming prompt into a <see cref="TaskType" />, extracts key files,

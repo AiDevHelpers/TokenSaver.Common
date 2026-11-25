@@ -1,6 +1,6 @@
-using TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
-namespace TokenSaver.ContextHelper.Models;
+namespace AiDevTools.TokenSaver.ContextHelper.Models;
 
 public class PipelineResult
 {

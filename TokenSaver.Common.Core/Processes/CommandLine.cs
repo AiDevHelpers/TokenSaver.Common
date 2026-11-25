@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace TokenSaver.Common.Core.Processes;
+namespace AiDevTools.TokenSaver.Common.Core.Processes;
 
 /// <summary>
 ///     Splits a command-line string into arguments for <see cref="CommandRequest.Arguments" />. Whitespace separates

@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading;
 
-namespace TokenSaver.Common.Models;
+namespace AiDevTools.TokenSaver.Common.Models;
 
 /// <summary>Why an edit of a client config did not happen. Stable codes, recorded in docs/Host-MCP/provider-config-reliability.md.</summary>
 public static class ConfigFailure

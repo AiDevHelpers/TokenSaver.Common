@@ -13,4 +13,10 @@
     <ProjectReference Include="../TokenSaver.Common.Models/TokenSaver.Common.Models.csproj" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <PackageId>AiDevTools.TokenSaver.Common.Installation</PackageId>
+    <AssemblyName>AiDevTools.TokenSaver.Common.Installation</AssemblyName>
+    <RootNamespace>AiDevTools.TokenSaver.Common.Installation</RootNamespace>
+  </PropertyGroup>
+
 </Project>

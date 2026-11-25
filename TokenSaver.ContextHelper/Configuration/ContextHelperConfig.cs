@@ -1,6 +1,6 @@
-using TokenSaver.ContextHelper.Models;
+using AiDevTools.TokenSaver.ContextHelper.Models;
 
-namespace TokenSaver.ContextHelper.Configuration;
+namespace AiDevTools.TokenSaver.ContextHelper.Configuration;
 
 public class ContextHelperConfig
 {

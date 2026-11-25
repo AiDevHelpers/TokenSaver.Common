@@ -1,11 +1,11 @@
-using TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 using Microsoft.Extensions.Logging;
 
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace TokenSaver.ContextHelper.Pipeline.Stages;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline.Stages;
 
 /// <summary>
 ///     Stage 5 — Tool Call Compression.

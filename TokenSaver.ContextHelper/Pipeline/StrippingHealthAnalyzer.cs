@@ -1,10 +1,10 @@
-using TokenSaver.ContextHelper.Configuration;
-using TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Configuration;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace TokenSaver.ContextHelper.Pipeline;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline;
 
 /// <summary>
 ///     Evaluates per-session signals to detect when stripping is too aggressive

@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
-namespace TokenSaver.Common.Installation;
+namespace AiDevTools.TokenSaver.Common.Installation;
 
 /// <summary>
 /// Checks installation status and requirements

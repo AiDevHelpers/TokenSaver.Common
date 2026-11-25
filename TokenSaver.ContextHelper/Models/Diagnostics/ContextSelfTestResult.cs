@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Models.Diagnostics;
+namespace AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 /// <summary>
 ///     Result of <c>ContextCleanerService.RunSelfTestAsync</c> — runs a synthetic, deliberately

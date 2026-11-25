@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace TokenSaver.Common.Installation;
+namespace AiDevTools.TokenSaver.Common.Installation;
 
 /// <summary>
 /// Resolves paths for TokenSaver service installation and configuration.

@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Pipeline;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline;
 
 public interface IPipelineStage
 {

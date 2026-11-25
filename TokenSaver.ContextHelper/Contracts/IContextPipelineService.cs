@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Contracts;
+namespace AiDevTools.TokenSaver.ContextHelper.Contracts;
 
 /// <summary>
 /// Service for building concise context through a pipeline of processing stages.

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TokenSaver.Common.Models;
+namespace AiDevTools.TokenSaver.Common.Models;
 
 /// <summary>
 /// Report on context hygiene and issues

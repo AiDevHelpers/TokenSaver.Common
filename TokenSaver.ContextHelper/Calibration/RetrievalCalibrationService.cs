@@ -1,6 +1,6 @@
-using TokenSaver.ContextHelper.Configuration;
-using TokenSaver.ContextHelper.Embedding;
-using TokenSaver.ContextHelper.Models.Calibration;
+using AiDevTools.TokenSaver.ContextHelper.Configuration;
+using AiDevTools.TokenSaver.ContextHelper.Embedding;
+using AiDevTools.TokenSaver.ContextHelper.Models.Calibration;
 
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -9,7 +9,7 @@ using System.Collections.Concurrent;
 using System.Globalization;
 using System.Text.Json;
 
-namespace TokenSaver.ContextHelper.Calibration;
+namespace AiDevTools.TokenSaver.ContextHelper.Calibration;
 
 /// <summary>
 ///     Self-tunes <c>ContextHelperConfig.SemanticThreshold</c> from live usage signal: when a

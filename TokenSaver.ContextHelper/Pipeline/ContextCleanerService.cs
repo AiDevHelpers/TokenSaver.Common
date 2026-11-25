@@ -1,7 +1,7 @@
-using TokenSaver.ContextHelper.Configuration;
-using TokenSaver.ContextHelper.Models;
-using TokenSaver.ContextHelper.Models.Diagnostics;
-using TokenSaver.ContextHelper.Pipeline.Stages;
+using AiDevTools.TokenSaver.ContextHelper.Configuration;
+using AiDevTools.TokenSaver.ContextHelper.Models;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Pipeline.Stages;
 
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -11,7 +11,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 
-namespace TokenSaver.ContextHelper.Pipeline;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline;
 
 /// <summary>
 ///     Orchestrates the full context hygiene pipeline. Entry point for all callers.

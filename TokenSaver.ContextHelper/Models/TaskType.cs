@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Models;
+namespace AiDevTools.TokenSaver.ContextHelper.Models;
 
 public enum TaskType
 {

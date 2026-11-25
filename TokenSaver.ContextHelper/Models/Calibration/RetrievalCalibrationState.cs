@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Models.Calibration;
+namespace AiDevTools.TokenSaver.ContextHelper.Models.Calibration;
 
 /// <summary>
 ///     Persisted at <c>.tokensaver/retrieval-calibration.json</c>. Holds the running adjustment

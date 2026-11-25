@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TokenSaver.Common.Models;
+namespace AiDevTools.TokenSaver.Common.Models;
 
 /// <summary>
 /// Represents a chunk of source code.

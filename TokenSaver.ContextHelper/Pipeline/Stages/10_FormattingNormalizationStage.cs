@@ -1,5 +1,5 @@
-using TokenSaver.ContextHelper.Models;
-using TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Models;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 using Microsoft.Extensions.Logging;
 
@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace TokenSaver.ContextHelper.Pipeline.Stages;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline.Stages;
 
 /// <summary>
 ///     Stage 10 — Formatting Normalization.

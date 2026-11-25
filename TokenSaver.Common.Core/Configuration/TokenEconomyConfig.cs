@@ -1,4 +1,4 @@
-namespace TokenSaver.Common.Core.Configuration;
+namespace AiDevTools.TokenSaver.Common.Core.Configuration;
 
 /// <summary>
 ///     Configuration for the token-economy tool surface (distillation, terse-mode, chunked

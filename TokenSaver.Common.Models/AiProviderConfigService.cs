@@ -7,7 +7,7 @@ using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TokenSaver.Common.Models;
+namespace AiDevTools.TokenSaver.Common.Models;
 
 /// <summary>
 ///     Writes this MCP server's entry into the config of each installed AI client (VS Code Copilot, Claude Code, Cursor,

@@ -13,4 +13,10 @@
   <ItemGroup>
     <PackageReference Update="Nerdbank.GitVersioning" Version="3.10.94" />
   </ItemGroup>
+  <PropertyGroup>
+    <PackageId>AiDevTools.TokenSaver.ContextHelper</PackageId>
+    <AssemblyName>AiDevTools.TokenSaver.ContextHelper</AssemblyName>
+    <RootNamespace>AiDevTools.TokenSaver.ContextHelper</RootNamespace>
+  </PropertyGroup>
+
 </Project>

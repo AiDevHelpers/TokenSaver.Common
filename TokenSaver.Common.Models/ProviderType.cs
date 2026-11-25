@@ -1,4 +1,4 @@
-namespace TokenSaver.Common.Models;
+namespace AiDevTools.TokenSaver.Common.Models;
 
 public enum ProviderType
 {

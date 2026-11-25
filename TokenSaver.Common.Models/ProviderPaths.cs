@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace TokenSaver.Common.Models;
+namespace AiDevTools.TokenSaver.Common.Models;
 
 /// <summary>
 ///     Where each AI client keeps its MCP config, relative to the user's profile and roaming AppData folders. Injectable

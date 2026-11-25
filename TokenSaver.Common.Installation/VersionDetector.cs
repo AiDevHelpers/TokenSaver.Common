@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.Json;
 
-namespace TokenSaver.Common.Installation;
+namespace AiDevTools.TokenSaver.Common.Installation;
 
 /// <summary>
 /// Detects and manages TokenSaver version information

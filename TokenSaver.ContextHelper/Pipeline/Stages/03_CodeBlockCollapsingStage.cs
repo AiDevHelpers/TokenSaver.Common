@@ -1,5 +1,5 @@
-using TokenSaver.ContextHelper.Configuration;
-using TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Configuration;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace TokenSaver.ContextHelper.Pipeline.Stages;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline.Stages;
 
 /// <summary>
 ///     Stage 3 — Code Block Collapsing.

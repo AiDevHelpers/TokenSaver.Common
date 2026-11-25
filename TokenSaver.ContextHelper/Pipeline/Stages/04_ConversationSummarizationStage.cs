@@ -1,5 +1,5 @@
-using TokenSaver.ContextHelper.Configuration;
-using TokenSaver.ContextHelper.Models.Diagnostics;
+using AiDevTools.TokenSaver.ContextHelper.Configuration;
+using AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Net.Http.Json;
 using System.Text.RegularExpressions;
 
-namespace TokenSaver.ContextHelper.Pipeline.Stages;
+namespace AiDevTools.TokenSaver.ContextHelper.Pipeline.Stages;
 
 /// <summary>
 ///     Stage 4 — Conversation Summarization.

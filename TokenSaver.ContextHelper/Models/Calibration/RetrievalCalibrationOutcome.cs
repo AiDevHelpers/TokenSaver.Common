@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Models.Calibration;
+namespace AiDevTools.TokenSaver.ContextHelper.Models.Calibration;
 
 /// <summary>
 ///     One sample appended to <c>.tokensaver/retrieval-calibration-outcomes.jsonl</c> whenever a

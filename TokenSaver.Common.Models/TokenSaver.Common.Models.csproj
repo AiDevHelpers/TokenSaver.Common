@@ -14,4 +14,10 @@
     <PackageReference Update="Nerdbank.GitVersioning" Version="3.10.94" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <PackageId>AiDevTools.TokenSaver.Common.Models</PackageId>
+    <AssemblyName>AiDevTools.TokenSaver.Common.Models</AssemblyName>
+    <RootNamespace>AiDevTools.TokenSaver.Common.Models</RootNamespace>
+  </PropertyGroup>
+
 </Project>

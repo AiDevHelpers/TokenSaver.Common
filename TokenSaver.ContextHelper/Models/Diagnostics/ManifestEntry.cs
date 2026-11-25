@@ -1,4 +1,4 @@
-namespace TokenSaver.ContextHelper.Models.Diagnostics;
+namespace AiDevTools.TokenSaver.ContextHelper.Models.Diagnostics;
 
 public class ManifestEntry
 {
